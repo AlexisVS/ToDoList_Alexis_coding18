@@ -90,6 +90,10 @@ h1 {
           align-items: center;
 }
 
+#todoList .archiver {
+  background-color: rgba(3, 212, 20, 0.6) !important;
+}
+
 #todoList .todoItem {
   height: 40px;
   display: -webkit-inline-box;
@@ -115,5 +119,9 @@ h1 {
   border: none;
   background-color: transparent;
   padding-left: 2rem;
+}
+
+.is-hidden {
+  visibility: hidden;
 }
 /*# sourceMappingURL=app.css.map */

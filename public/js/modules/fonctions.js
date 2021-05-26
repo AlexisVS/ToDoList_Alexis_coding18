@@ -1,5 +1,7 @@
 export let init = () => {
-    ajouterTodoItem()
+    ajouterTodoItem();
+    modifierTodoItem();
+    trierTodoItem();
 }
 
 let ajouterTodoItem = () => {
@@ -17,7 +19,7 @@ let ajouterTodoItem = () => {
         btnArchiver.innerHTML = "✔";
 
         todoItem = document.createElement('li');
-        todoItem.className = "todoItem";
+        todoItem.className = "todoItem enCours";
 
         inputTodo = document.createElement('input');
         inputTodo.value = todoInput.value;
@@ -38,4 +40,43 @@ let ajouterTodoItem = () => {
 
         todoList.appendChild(todoItem)
     })
+}
+
+let modifierTodoItem = () => {
+    let todoList;
+    todoList = document.querySelector('#todoList')
+
+    todoList.addEventListener("click", eventClick => {
+        switch (eventClick.target.innerHTML) {
+            case "✔":
+                eventClick.target.parentElement.classList.remove("enCours")
+                eventClick.target.parentElement.classList.add("archiver")
+                break;
+
+            case "✏":
+                eventClick.target.parentElement.parentElement.querySelector('input').readOnly == false ? eventClick.target.parentElement.parentElement.querySelector('input').readOnly = true : eventClick.target.parentElement.parentElement.querySelector('input').readOnly = false;
+                break;
+
+            case "❌":
+                eventClick.target.parentElement.parentElement.remove()
+                break;
+        }
+    })
+}
+
+let trierTodoItem = () => {
+    let btnEnCours, btnFinis, btnTous, todoList
+    btnEnCours = document.querySelector('#triEnCours');
+    btnFinis = document.querySelector('#triFinis');
+    btnTous = document.querySelector('#triTous')
+    todoList = document.querySelector('#todoList')
+
+    switch (key) {
+        case value:
+            
+            break;
+    
+        default:
+            break;
+    }
 }
