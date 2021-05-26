@@ -1,0 +1,119 @@
+body {
+  min-height: 100vh;
+  background-image: url("../img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: sans-serif;
+  font-size: 6rem;
+  text-transform: uppercase;
+}
+
+.todoHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.todoHeader #todoInput {
+  width: 60vw;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 25px;
+  height: 40px;
+  padding-left: 2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.todoHeader #todoAjouter {
+  margin-left: 1rem;
+  color: white;
+  padding: 0 1.3rem;
+  font-size: 1.25rem;
+  background-color: rgba(0, 89, 255, 0.616);
+  border: none;
+  border-radius: 25px;
+}
+
+#triage {
+  padding-top: 2.5rem;
+}
+
+#triage button {
+  margin: 0 1rem;
+  width: 150px;
+  border-radius: 25px;
+  border: none;
+  height: 45px;
+  font-size: 1.3rem;
+}
+
+#triage #triEnCours {
+  background-color: rgba(0, 89, 255, 0.6);
+  color: white;
+}
+
+#triage #triFinis {
+  background-color: rgba(3, 212, 20, 0.6);
+  color: white;
+}
+
+#triage #triTous {
+  opacity: 0.7;
+  border: 3px solid rgba(0, 0, 0, 0.7);
+}
+
+#todoList {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#todoList .todoItem {
+  height: 40px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 80vw;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#todoList .todoItem #divModifierDelete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#todoList .todoItem button {
+  border: none;
+  background-color: transparent;
+}
+
+#todoList .todoItem input {
+  width: 82%;
+  border: none;
+  background-color: transparent;
+  padding-left: 2rem;
+}
+/*# sourceMappingURL=app.css.map */
