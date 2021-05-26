@@ -17,7 +17,7 @@ let ajouterTodoItem = () => {
         todoList = document.querySelector('#todoList');
 
         btnArchiver = document.createElement('button');
-        btnArchiver.innerHTML = "✔";
+        btnArchiver.innerHTML = "✔️";
 
         todoItem = document.createElement('li');
         todoItem.className = "todoItem enCours";
@@ -30,7 +30,7 @@ let ajouterTodoItem = () => {
         divModifierDelete.id = "divModifierDelete"
 
         btnModifier = document.createElement('button');
-        btnModifier.innerHTML = "✏";
+        btnModifier.innerHTML = "✏️";
 
         btnDelete = document.createElement('button');
         btnDelete.innerHTML = "❌";
@@ -49,12 +49,12 @@ let modifierTodoItem = () => {
 
     todoList.addEventListener("click", eventClick => {
         switch (eventClick.target.innerHTML) {
-            case "✔":
+            case "✔️":
                 eventClick.target.parentElement.classList.remove("enCours")
                 eventClick.target.parentElement.classList.add("archiver")
                 break;
 
-            case "✏":
+            case "✏️":
                 eventClick.target.parentElement.parentElement.querySelector('input').readOnly == false ? eventClick.target.parentElement.parentElement.querySelector('input').readOnly = true : eventClick.target.parentElement.parentElement.querySelector('input').readOnly = false;
                 break;
 
@@ -66,18 +66,56 @@ let modifierTodoItem = () => {
 }
 
 let trierTodoItem = () => {
-    let btnEnCours, btnFinis, btnTous, todoList
+    let btnEnCours, btnFinis, btnTous, todoList, todoListChildren
     btnEnCours = document.querySelector('#triEnCours');
     btnFinis = document.querySelector('#triFinis');
     btnTous = document.querySelector('#triTous')
     todoList = document.querySelector('#todoList')
+    todoListChildren = Array.from(todoList.children)
 
-    switch (key) {
-        case value:
-            
-            break;
-    
-        default:
-            break;
-    }
+    document.body.addEventListener('click', eventClick => {
+        switch (eventClick.target.innerHTML) {
+
+            // ! si il y a archiver alors tu mets is-dnone
+            case "En cours":
+                Array.from(todoList.children).forEach(e => {
+                    if (e.classList.contains("enCours")) {
+                        e.classList.remove('is-dnone')
+                    }
+                })
+                
+                Array.from(todoList.children).forEach(e => {
+                    if (e.classList.contains("archiver")) {
+                        e.classList.add('is-dnone')
+                    }
+                })
+
+                break;
+
+            // ! si il y a is-dnone retirer is-dnone
+            // ! puis si il y a enCours mettre is-dnone
+            case "Finis":
+                Array.from(todoList.children).forEach(e => {
+                    if (e.classList.contains("is-dnone")) {
+                        e.classList.remove('is-dnone')
+                    }
+                })
+
+                Array.from(todoList.children).forEach(e => {
+                    if (e.classList.contains("enCours")) {
+                        e.classList.add('is-dnone')
+                    }
+                })
+                break;
+
+            // ! si il y a is-dnone retirer is-dnone
+            case "Tous":
+                Array.from(todoList.children).forEach(e => {
+                    if (e.classList.contains("is-dnone")) {
+                        e.classList.remove('is-dnone')
+                    }
+                })
+                break;
+        }
+    })
 }

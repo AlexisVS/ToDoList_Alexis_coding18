@@ -95,12 +95,13 @@ h1 {
 }
 
 #todoList .todoItem {
-  height: 40px;
+  height: 50px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   width: 80vw;
   background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2px;
 }
 
 #todoList .todoItem #divModifierDelete {
@@ -112,6 +113,7 @@ h1 {
 #todoList .todoItem button {
   border: none;
   background-color: transparent;
+  font-size: 1.5rem;
 }
 
 #todoList .todoItem input {
@@ -119,9 +121,10 @@ h1 {
   border: none;
   background-color: transparent;
   padding-left: 2rem;
+  font-size: 1.125rem;
 }
 
-.is-hidden {
-  visibility: hidden;
+.is-dnone {
+  display: none !important;
 }
 /*# sourceMappingURL=app.css.map */

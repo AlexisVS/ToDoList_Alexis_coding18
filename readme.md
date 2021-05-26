@@ -13,7 +13,7 @@
 - enCours : attibuer initialement pour dire que l'element n'a pas été archiver
 - archiver : pour dire qu'il a été archiver
 
-- IMPORTANT : créé une classe .is-hidden --> visibility: hidden
+- IMPORTANT : créé une classe .is-dnone --> visibility: hidden
 
 ## bonus
 - faire un local storage pour que quand on refresh y a encore les elements
