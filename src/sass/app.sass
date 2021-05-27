@@ -7,6 +7,8 @@ body
     flex-direction: column
     align-items: center
     overflow-x: hidden
+    margin: 0
+    padding: 0
 h1
     font-family: sans-serif
     font-size: 6rem
@@ -74,4 +76,31 @@ h1
             font-size: 1.125rem
 .is-dnone
     display: none !important
-    
+#overlayWrapper
+    width: 100vw
+    height: 100vh
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background-color: rgba(0, 0, 0, 0.7)
+    display: flex
+    justify-content: center
+    align-items: center
+    #overlayContent
+        padding: 1rem 5rem 3rem 5rem
+        width: 300px
+        background-color: rgba(219, 219, 219, 0.5)
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-evenly
+        border-radius: 5px
+        h2 
+            width: 300px
+            text-align: center
+            font-family: sans-serif
+        button
+            border: none
+            background-color: transparent
+            font-size: 2rem

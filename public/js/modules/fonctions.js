@@ -61,7 +61,41 @@ let modifierTodoItem = () => {
                 break;
 
             case "❌":
-                eventClick.target.parentElement.parentElement.remove()
+                let divWrapper, h2, div, confirm, cancel, currentTodoItem;
+
+                currentTodoItem = eventClick.target.parentElement.parentElement
+                let deleteCurrentTodoItem = (currentTodoItem) => {
+                    currentTodoItem.remove()
+                }
+
+
+                divWrapper = document.createElement("div");
+                divWrapper.id = "overlayWrapper";
+
+                div = document.createElement("div");
+                div.id = "overlayContent";
+
+                h2 = document.createElement('h2');
+                h2.innerHTML = "Êtes vous sure ?";
+
+                cancel = document.createElement('button');
+                cancel.id = "btnCancel";
+                cancel.innerHTML = "❌";
+                cancel.addEventListener('click', eventClick => {
+                    eventClick.target.parentElement.parentElement.remove()
+                })
+
+                confirm = document.createElement('button');
+                confirm.id = "btnConfirm";
+                confirm.innerHTML = "✔️";
+                confirm.addEventListener('click', eventClick => {
+                    deleteCurrentTodoItem(currentTodoItem);
+                    eventClick.target.parentElement.parentElement.remove();
+                })
+
+                div.prepend(h2, confirm, cancel)
+                divWrapper.appendChild(div)
+                document.body.append(divWrapper)
                 break;
         }
     })
@@ -155,37 +189,37 @@ document.body.addEventListener('click', uppdateLocalStorage)
 let initLocalStorageItems = () => {
 
     if (window.localStorage.getItem("TodoListItems") != null) {
-        
-        let storage ,todoList, btnArchiver, todoItem, divModifierDelete, btnModifier, btnDelete, inputTodo;
-        
+
+        let storage, todoList, btnArchiver, todoItem, divModifierDelete, btnModifier, btnDelete, inputTodo;
+
         storage = JSON.parse(window.localStorage.getItem("TodoListItems"))
-        
+
         storage.forEach(el => {
             todoList = document.querySelector('#todoList');
-    
+
             btnArchiver = document.createElement('button');
             btnArchiver.innerHTML = "✔️";
-    
+
             todoItem = document.createElement('li');
             todoItem.className = el[1];
-    
+
             inputTodo = document.createElement('input');
             inputTodo.value = el[0];
             inputTodo.readOnly = true;
-    
+
             divModifierDelete = document.createElement('div');
             divModifierDelete.id = "divModifierDelete"
-    
+
             btnModifier = document.createElement('button');
             btnModifier.innerHTML = "✏️";
-    
+
             btnDelete = document.createElement('button');
             btnDelete.innerHTML = "❌";
-    
+
             divModifierDelete.prepend(btnModifier, btnDelete);
-    
+
             todoItem.prepend(btnArchiver, inputTodo, divModifierDelete);
-    
+
             todoList.appendChild(todoItem);
         })
     }
