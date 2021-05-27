@@ -1,4 +1,5 @@
 export let init = () => {
+    initLocalStorageItems();
     ajouterTodoItem();
     modifierTodoItem();
     trierTodoItem();
@@ -97,7 +98,7 @@ let trierTodoItem = () => {
                         e.classList.remove('is-dnone')
                     }
                 })
-                
+
                 Array.from(todoList.children).forEach(e => {
                     if (e.classList.contains("archiver")) {
                         e.classList.add('is-dnone')
@@ -132,4 +133,60 @@ let trierTodoItem = () => {
                 break;
         }
     })
+}
+
+
+let uppdateLocalStorage = () => {
+    let todoListItems, arr = [];
+    todoListItems = Array.from(document.querySelector('#todoList').children);
+
+    todoListItems.forEach(el => {
+        let tempArr;
+        tempArr = [];
+        tempArr.push(el.children[1].value, el.className);
+        arr.push(tempArr);
+    })
+    window.localStorage.setItem("TodoListItems", JSON.stringify(arr));
+}
+document.body.addEventListener('click', uppdateLocalStorage)
+
+
+
+let initLocalStorageItems = () => {
+
+    if (window.localStorage.getItem("TodoListItems") != null) {
+        
+        let storage ,todoList, btnArchiver, todoItem, divModifierDelete, btnModifier, btnDelete, inputTodo;
+        
+        storage = JSON.parse(window.localStorage.getItem("TodoListItems"))
+        
+        storage.forEach(el => {
+            todoList = document.querySelector('#todoList');
+    
+            btnArchiver = document.createElement('button');
+            btnArchiver.innerHTML = "✔️";
+    
+            todoItem = document.createElement('li');
+            todoItem.className = el[1];
+    
+            inputTodo = document.createElement('input');
+            inputTodo.value = el[0];
+            inputTodo.readOnly = true;
+    
+            divModifierDelete = document.createElement('div');
+            divModifierDelete.id = "divModifierDelete"
+    
+            btnModifier = document.createElement('button');
+            btnModifier.innerHTML = "✏️";
+    
+            btnDelete = document.createElement('button');
+            btnDelete.innerHTML = "❌";
+    
+            divModifierDelete.prepend(btnModifier, btnDelete);
+    
+            todoItem.prepend(btnArchiver, inputTodo, divModifierDelete);
+    
+            todoList.appendChild(todoItem);
+        })
+    }
 }
