@@ -40,6 +40,7 @@ let ajouterTodoItem = () => {
         todoItem.prepend(btnArchiver, inputTodo, divModifierDelete);
 
         todoList.appendChild(todoItem)
+
     })
 }
 
@@ -61,6 +62,19 @@ let modifierTodoItem = () => {
             case "❌":
                 eventClick.target.parentElement.parentElement.remove()
                 break;
+        }
+    })
+
+    todoList.addEventListener("keydown", eventKey => {
+        let todoListItems
+        todoListItems = Array.from(document.querySelector('#todoList').children)
+        if (eventKey.key == "Enter") {
+            todoListItems.forEach(el => {
+                console.log(el.children[1]);
+                if (el.children[1].readOnly == false) {
+                    el.children[1].readOnly = true
+                }
+            })
         }
     })
 }

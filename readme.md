@@ -1,6 +1,6 @@
 # Todo list
-- trello
-- github ( faire commit a init dom && apres supprimer && apres modifier && apres archiver)
+- Trello : [lien du trello](https://trello.com/b/BEQmoC0c)
+- Github ( faire commit a init dom && apres supprimer && apres modifier && apres archiver)
 
 
 
